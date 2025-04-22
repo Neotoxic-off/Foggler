@@ -1,5 +1,5 @@
 # Foggler
-🕸️ Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know. 
+🕸️ Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know 
 
 ## Download
 - Go in [Release](https://github.com/Neotoxic-off/Foggler/releases)
@@ -7,7 +7,7 @@
 
 ## Usage
 ```SH
-🕸️ Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know
+Foggler keeps a constant watch on Dead by Daylight server connections
 
 Usage: foggler [OPTIONS] --servers <SERVERS>
 

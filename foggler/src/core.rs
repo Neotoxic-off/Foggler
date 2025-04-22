@@ -1,5 +1,5 @@
 use tokio::task;
-use log::{info, error, debug};
+use log::{info, error};
 
 use crate::configuration::Configuration;
 use crate::checker::ping;
