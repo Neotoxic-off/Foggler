@@ -1,33 +1,53 @@
 use clap::Parser;
 use tokio;
+use tokio::time::{sleep, Duration};
+use log::{error, debug};
 
 mod arguments;
 mod configuration;
 mod checker;
 mod core;
 mod models;
+mod logs;
 
-use crate::arguments::Arguments;
-
-fn init_logger(debug: bool) {
-    if std::env::var("RUST_LOG").is_err() {
-        std::env::set_var("RUST_LOG", if debug { "debug" } else { "info" });
+fn load_logger(debug: bool, path: &str) -> bool {
+    match logs::init(debug, path) {
+        Ok(()) => {
+            true
+        },
+        Err(e) => {
+            error!("{}", e);
+            false
+        }
     }
+}
 
-    let _ = env_logger::Builder::from_default_env().try_init();
+async fn wait(time: u64) -> bool {
+    debug!("waiting {}s", time);
+
+    sleep(Duration::from_secs(time)).await;
+
+    time > 0
 }
 
 #[tokio::main]
 async fn main() {
-    let arguments: Arguments = Arguments::parse();
-    init_logger(arguments.debug);
+    let arguments: arguments::Arguments = arguments::Arguments::parse();
+    let loaded: bool = load_logger(arguments.debug, &arguments.logs);
+    let mut alive: bool = true;
 
-    let mut core: core::Core = core::Core::new(
-        arguments.servers,
-        arguments.port,
-        arguments.timeout
-    );
-    
-    core.load();
-    core.run().await;
+    if loaded == true {
+        let mut core: core::Core = core::Core::new(
+            arguments.servers,
+            arguments.port,
+            arguments.timeout
+        );
+        
+        core.load();
+
+        while alive {
+            core.run().await;
+            alive = wait(arguments.wait).await;
+        }
+    }
 }

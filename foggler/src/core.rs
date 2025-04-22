@@ -11,9 +11,9 @@ pub struct Core {
 }
 
 impl Core {
-    pub fn new(server_configuration_path: String, socket_port: u16, timeout: u64) -> Self {
+    pub fn new(configuration: String, socket_port: u16, timeout: u64) -> Self {
         Self {
-            configuration: Configuration::new(server_configuration_path),
+            configuration: Configuration::new(configuration),
             socket_port,
             timeout
         }

@@ -5,6 +5,12 @@
 - Go in [Release](https://github.com/Neotoxic-off/Foggler/releases)
 - Download latest version for your device
 
+## Environment
+```INI
+GRAFANA_USERNAME=admin
+GRAFANA_PASSWORD=i_am_not_stupid_to_set_admin_as_password
+```
+
 ## Usage
 ```SH
 Foggler keeps a constant watch on Dead by Daylight server connections
@@ -12,12 +18,14 @@ Foggler keeps a constant watch on Dead by Daylight server connections
 Usage: foggler [OPTIONS] --servers <SERVERS>
 
 Options:
-  -s, --servers <SERVERS>          
-  -t, --timeout <TIMEOUT>          [default: 3]
-  -p, --port-socket <PORT_SOCKET>  [default: 443]
-      --debug                      
-  -h, --help                       Print help
-  -V, --version                    Print version
+  -s, --servers <SERVERS>  List of servers to ping
+  -t, --timeout <TIMEOUT>  Time limit to wait before timeout [default: 3]
+  -p, --port <PORT>        Port to ping [default: 443]
+  -w, --wait <WAIT>        Waiting time in sec between check (0 will stop after first check) [default: 600]
+  -l, --logs <LOGS>        Logs folder used for monitoring [default: logs]
+      --debug              Display debug information
+  -h, --help               Print help
+  -V, --version            Print version
 ```
 
 ## Example

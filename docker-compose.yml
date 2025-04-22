@@ -1,0 +1,40 @@
+services:
+    foggler:
+        build: foggler
+        volumes:
+            - ./logs:/app/logs
+        networks:
+            - foggler_net
+
+    loki:
+        image: grafana/loki:latest
+        ports:
+            - "3100:3100"
+        command: -config.file=/etc/loki/local-config.yaml
+        networks:
+            - foggler_net
+
+    promtail:
+        image: grafana/promtail:latest
+        volumes:
+            - ./logs:/var/log/app
+            - ./promtail-config.yaml:/etc/promtail/config.yaml
+        command: -config.file=/etc/promtail/config.yaml
+        networks:
+            - foggler_net
+
+    grafana:
+        image: grafana/grafana:latest
+        ports:
+            - "3000:3000"
+        environment:
+            GF_SECURITY_ADMIN_USER: ${GRAFANA_USERNAME}
+            GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
+        volumes:
+            - ./grafana-storage:/var/lib/grafana
+        networks:
+            - foggler_net
+
+networks:
+  foggler_net:
+    driver: bridge 
