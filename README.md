@@ -1,5 +1,9 @@
 # Foggler
-🕸️ Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know 
+🕸️ Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know
+
+<p align="center">
+  <img src="images/image.png" height="80%" width="80%"/>
+</p>
 
 ## Container
 ### Requirements
