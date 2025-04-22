@@ -1,17 +1,30 @@
 # Foggler
 🕸️ Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know 
 
-## Download
-- Go in [Release](https://github.com/Neotoxic-off/Foggler/releases)
-- Download latest version for your device
+## Container
+### Requirements
+- Docker
 
-## Environment
+### Stack
+- Grafana
+- Loki
+- Promtail
+- Rust
+
+### Environment
 ```INI
 GRAFANA_USERNAME=admin
 GRAFANA_PASSWORD=i_am_not_stupid_to_set_admin_as_password
 ```
 
-## Usage
+### Deploy
+```SH
+chmod 777 grafana
+docker compose up --build
+```
+
+## Binary
+### Usage
 ```SH
 Foggler keeps a constant watch on Dead by Daylight server connections
 
@@ -28,7 +41,7 @@ Options:
   -V, --version            Print version
 ```
 
-## Example
+### Example
 ```SH
 ./foggler --servers servers.toml
 ```

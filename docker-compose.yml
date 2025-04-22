@@ -3,8 +3,10 @@ services:
         build: foggler
         volumes:
             - ./logs:/app/logs
+            - ./servers.toml:/app/servers.toml
         networks:
             - foggler_net
+        restart: unless-stopped
 
     loki:
         image: grafana/loki:latest
@@ -18,7 +20,7 @@ services:
         image: grafana/promtail:latest
         volumes:
             - ./logs:/var/log/app
-            - ./promtail-config.yaml:/etc/promtail/config.yaml
+            - ./promtail/config.yaml:/etc/promtail/config.yaml
         command: -config.file=/etc/promtail/config.yaml
         networks:
             - foggler_net
@@ -31,7 +33,7 @@ services:
             GF_SECURITY_ADMIN_USER: ${GRAFANA_USERNAME}
             GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
         volumes:
-            - ./grafana-storage:/var/lib/grafana
+            - ./grafana:/var/lib/grafana
         networks:
             - foggler_net
 
