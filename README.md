@@ -23,6 +23,17 @@ chmod 777 grafana
 docker compose up --build
 ```
 
+## Grafana
+- Graph styles > Connect null values > Always
+```BASH
+avg_over_time(
+  {job="foggler"}
+  | json
+  | unwrap latency
+  [${__interval}]
+) by (region)
+```
+
 ## Binary
 ### Usage
 ```SH
