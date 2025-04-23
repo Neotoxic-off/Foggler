@@ -26,7 +26,7 @@ impl Core {
     async fn check(name: String, url: String, port: u16, timeout: u64) -> (bool, String, String) {
         match ping::ping(&url, port, timeout).await {
             Ok(time) => {
-                (true, name, format!("{}ms", time))
+                (true, name, format!("{}", time))
             }
             Err(e) => {
                 (false, name, e)
