@@ -1,10 +1,12 @@
-# 🕸️ Foggler
+<div align="center">
+  <h1>🕸️ Foggler</h1>
 
-![GitHub last commit](https://img.shields.io/github/last-commit/Neotoxic-off/foggler)
-![GitHub repo size](https://img.shields.io/github/repo-size/Neotoxic-off/foggler)
-![GitHub top language](https://img.shields.io/github/languages/top/Neotoxic-off/foggler)
+  <img src="https://img.shields.io/github/last-commit/Neotoxic-off/foggler" alt="GitHub last commit">
+  <img src="https://img.shields.io/github/repo-size/Neotoxic-off/foggler" alt="GitHub repo size">
+  <img src="https://img.shields.io/github/languages/top/Neotoxic-off/foggler" alt="GitHub top language">
 
-**Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know.**
+  <p><strong>Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know.</strong></p>
+</div>
 
 > This project is intended to be deployed on a server for monitoring via **Loki & Grafana**.  
 > Running it as a binary on your personal device might be overkill. Check the arguments first.
