@@ -1,4 +1,8 @@
 # Foggler
+![GitHub last commit](https://img.shields.io/github/last-commit/Neotoxic-off/foggler)
+![GitHub repo size](https://img.shields.io/github/repo-size/Neotoxic-off/foggler)
+![GitHub top language](https://img.shields.io/github/languages/top/Neotoxic-off/foggler)
+
 🕸️ Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know
 
 <p align="center">
