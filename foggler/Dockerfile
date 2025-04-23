@@ -15,4 +15,9 @@ WORKDIR /app
 COPY --from=builder /app/target/release/foggler /app/foggler
 RUN chmod +x /app/foggler
 
-CMD ["/app/foggler", "--servers", "/app/servers.toml", "--timeout", "3", "--port", "443", "--wait", "60", "--logs", "logs"]
+CMD sh -c '/app/foggler \
+  --servers /app/servers.toml \
+  --timeout ${TIMEOUT} \
+  --port ${PORT} \
+  --wait ${WAIT} \
+  --logs logs'
