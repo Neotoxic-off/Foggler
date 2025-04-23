@@ -1,7 +1,7 @@
 use chrono::Utc;
 use std::{
     fs::{self, OpenOptions, File},
-    io::{self, BufWriter, Write},
+    io::{self, BufWriter},
     path::{Path, PathBuf},
 };
 use tracing_log::LogTracer;

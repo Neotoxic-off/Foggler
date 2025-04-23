@@ -5,9 +5,7 @@
 
 🕸️ Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know
 
-<p align="center">
-  <img src="images/image.png" height="80%" width="80%"/>
-</p>
+**This project is meant to be deployed on a server to allow monitoriong via loki & grafana. Running it as a binary on your device might be overkill make sure to check the arguments**
 
 ## Container
 ### Requirements
@@ -37,10 +35,15 @@ docker compose up --build
 avg_over_time(
   {job="foggler"}
   | json
-  | unwrap latency
+  | unwrap ping
   [${__interval}]
-) by (region)
+) by (server)
 ```
+
+<p align="center">
+  <img src="images/image.png" height="80%" width="80%"/>
+</p>
+
 
 ## Binary
 ### Usage
@@ -55,31 +58,30 @@ Options:
   -p, --port <PORT>        Port to ping [default: 443]
   -w, --wait <WAIT>        Waiting time in sec between check (0 will stop after first check) [default: 600]
   -l, --logs <LOGS>        Logs folder used for monitoring [default: logs]
-      --debug              Display debug information
   -h, --help               Print help
   -V, --version            Print version
 ```
 
 ### Example
 ```SH
-./foggler --servers servers.toml
+./foggler --servers servers.toml --wait 0
 ```
 ```LOG
-[2025-04-22T11:06:34Z INFO  foggler::core] AP East 1................: 226ms
-[2025-04-22T11:06:34Z INFO  foggler::core] AP South 1...............: 120ms
-[2025-04-22T11:06:34Z INFO  foggler::core] AP North East 1..........: 242ms
-[2025-04-22T11:06:34Z INFO  foggler::core] AP North East 2..........: 245ms
-[2025-04-22T11:06:34Z INFO  foggler::core] AP South East 1..........: 176ms
-[2025-04-22T11:06:34Z INFO  foggler::core] AP South East 2..........: 283ms
-[2025-04-22T11:06:34Z INFO  foggler::core] CA 1.....................: 124ms
-[2025-04-22T11:06:34Z INFO  foggler::core] EU Central 1.............: 40ms
-[2025-04-22T11:06:34Z INFO  foggler::core] EU West 1................: 51ms
-[2025-04-22T11:06:34Z INFO  foggler::core] EU West 2................: 42ms
-[2025-04-22T11:06:34Z INFO  foggler::core] SA East..................: 218ms
-[2025-04-22T11:06:34Z INFO  foggler::core] US East 1................: 105ms
-[2025-04-22T11:06:34Z INFO  foggler::core] US East 2................: 116ms
-[2025-04-22T11:06:34Z INFO  foggler::core] US West 1................: 162ms
-[2025-04-22T11:06:34Z INFO  foggler::core] US West 2................: 174ms
+2025-04-23T10:11:00.196815850+00:00  INFO foggler::core: server="AP East 1" ping="236ms"
+2025-04-23T10:11:00.196931278+00:00  INFO foggler::core: server="AP South 1" ping="121ms"
+2025-04-23T10:11:00.196992576+00:00  INFO foggler::core: server="AP North East 1" ping="244ms"
+2025-04-23T10:11:00.197081875+00:00  INFO foggler::core: server="AP North East 2" ping="248ms"
+2025-04-23T10:11:00.197143187+00:00  INFO foggler::core: server="AP South East 1" ping="176ms"
+2025-04-23T10:11:00.197209393+00:00  INFO foggler::core: server="AP South East 2" ping="285ms"
+2025-04-23T10:11:00.197267435+00:00  INFO foggler::core: server="CA 1" ping="121ms"
+2025-04-23T10:11:00.197362303+00:00  INFO foggler::core: server="EU Central 1" ping="65ms"
+2025-04-23T10:11:00.197419467+00:00  INFO foggler::core: server="EU West 1" ping="50ms"
+2025-04-23T10:11:00.197473130+00:00  INFO foggler::core: server="EU West 2" ping="43ms"
+2025-04-23T10:11:00.197529408+00:00  INFO foggler::core: server="SA East" ping="220ms"
+2025-04-23T10:11:00.197583488+00:00  INFO foggler::core: server="US East 1" ping="133ms"
+2025-04-23T10:11:00.197635278+00:00  INFO foggler::core: server="US East 2" ping="118ms"
+2025-04-23T10:11:00.197689278+00:00  INFO foggler::core: server="US West 1" ping="165ms"
+2025-04-23T10:11:00.197740966+00:00  INFO foggler::core: server="US West 2" ping="185ms"
 ```
 
 ## Rebuild
