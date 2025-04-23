@@ -16,8 +16,5 @@ pub struct Arguments {
     pub wait: u64,
 
     #[arg(short, long, default_value = "logs", help = "Logs folder used for monitoring")]
-    pub logs: String,
-
-    #[arg(long, default_value = "false", help = "Display debug information")]
-    pub debug: bool
+    pub logs: String
 }

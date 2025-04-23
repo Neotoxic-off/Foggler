@@ -1,6 +1,6 @@
 use toml;
 use std::fs;
-use log::{debug, error};
+use tracing::error;
 
 use crate::models::servers::Servers;
 
@@ -22,10 +22,9 @@ impl Configuration {
             match toml::from_str(&result) {
                 Ok(deserialized) => {
                     self.server_configuration = deserialized;
-                    debug!("server configuration loaded");
                 },
                 Err(e) => {
-                    error!("server configuration loading failed: {}", e);
+                    error!("{}", e);
                 }
             }
         }
@@ -34,8 +33,6 @@ impl Configuration {
     fn read_configuration(&mut self) -> Result<String, std::io::Error> {
         match fs::read_to_string(&self.path) {
             Ok(result) => {
-                debug!("configuration file '{}' read", self.path);
-                
                 Ok(result)
             },
             Err(e) => {

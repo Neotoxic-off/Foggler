@@ -1,5 +1,5 @@
 use tokio::task;
-use log::{info, error};
+use tracing::{info, error};
 
 use crate::configuration::Configuration;
 use crate::checker::ping;
@@ -37,9 +37,9 @@ impl Core {
     async fn render(&self, results: &Vec<(bool, String, String)>) -> () {
         for (success, name, result) in results {
             if *success == true {
-                info!("{:.<25}: {}", name, result);
+                info!(server = name, ping = result);
             } else {
-                error!("{:.<25}: {}", name, result);
+                error!(server = name, ping = result);
             } 
         }
     }
