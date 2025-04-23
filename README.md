@@ -60,8 +60,12 @@ chmod +x deploy.sh
 > **Graph styles** → Connect null values → Always
 
 ```sh
-{job="foggler"}
-| json
+avg_over_time(
+  {job="foggler"}
+  | json
+  | unwrap fields_ping
+  [${__interval}]
+) by (fields_server)
 ```
 
 <p align="center">
