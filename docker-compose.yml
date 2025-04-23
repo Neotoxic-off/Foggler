@@ -1,6 +1,10 @@
 services:
     foggler:
         build: foggler
+        environment:
+          PORT: ${PORT}
+          TIMEOUT: ${TIMEOUT}
+          WAIT: ${WAIT}
         volumes:
             - ./logs:/app/logs
             - ./servers.toml:/app/servers.toml
