@@ -8,8 +8,17 @@
   <p><strong>Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know.</strong></p>
 </div>
 
-> This project is intended to be deployed on a server for monitoring via **Loki & Grafana**.  
-> Running it as a binary on your personal device might be overkill. Check the arguments first.
+
+<div align="center">
+  <img src="./images/avatar.png" alt="Foggler Avatar" width="240" style="border-radius: 12px; margin-top: 20px;"/>
+</div>
+
+---
+
+## ⚠️ Important
+
+- This project is intended to be deployed on a server for monitoring via **Loki & Grafana**.
+- Running it as a binary on your personal device might be overkill. Check the arguments first.
 
 ---
 
