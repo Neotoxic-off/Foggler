@@ -15,10 +15,11 @@
 
 ---
 
-## ⚠️ Important
+## ℹ️ About
 
 - This project is intended to be deployed on a server for monitoring via **Loki & Grafana**.
 - Running it as a binary on your personal device might be overkill. Check the arguments first.
+- Foggler fetches the servers one by one trying to reach them to determinate the latency
 
 ---
 
