@@ -38,6 +38,9 @@
 ```ini
 GRAFANA_USERNAME=admin
 GRAFANA_PASSWORD=i_am_not_stupid_to_set_admin_as_password
+PORT=443
+TIMEOUT=3
+WAIT=600
 ```
 
 ### Deploy
