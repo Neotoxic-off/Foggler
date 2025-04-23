@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/github/repo-size/Neotoxic-off/foggler" alt="GitHub repo size">
   <img src="https://img.shields.io/github/languages/top/Neotoxic-off/foggler" alt="GitHub top language">
 
-  <p><strong>Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the mist to ensure you're always in the know.</strong></p>
+  <p><strong>Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the fog</strong></p>
 </div>
 
 
