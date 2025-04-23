@@ -44,7 +44,7 @@ WAIT=600
 ```
 
 ### Deploy
-[script](./deploy.sh)
+[deploy.sh](./deploy.sh)
 
 ```sh
 chmod +x deploy.sh
@@ -117,5 +117,5 @@ cargo build
 
 ## 🌐 Servers
 
-[configuration](./servers.toml)
+[servers.toml](./servers.toml)
 
