@@ -41,9 +41,11 @@ GRAFANA_PASSWORD=i_am_not_stupid_to_set_admin_as_password
 ```
 
 ### Deploy
+[script](./deploy.sh)
+
 ```sh
-chmod 777 grafana
-docker compose up --build
+chmod +x deploy.sh
+./deploy.sh
 ```
 
 ---
