@@ -59,13 +59,9 @@ chmod +x deploy.sh
 ### Suggested Panel Setting
 > **Graph styles** → Connect null values → Always
 
-```bash
-avg_over_time(
-  {job="foggler"}
-  | json
-  | unwrap ping
-  [${__interval}]
-) by (server)
+```sh
+{job="foggler"}
+| json
 ```
 
 <p align="center">
