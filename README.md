@@ -1,6 +1,7 @@
 <div align="center">
   <h1>🕸️ Foggler</h1>
 
+  <img src="https://img.shields.io/github/v/release/Neotoxic-off/foggler" alt="Github release">
   <img src="https://img.shields.io/github/last-commit/Neotoxic-off/foggler" alt="GitHub last commit">
   <img src="https://img.shields.io/github/repo-size/Neotoxic-off/foggler" alt="GitHub repo size">
   <img src="https://img.shields.io/github/languages/top/Neotoxic-off/foggler" alt="GitHub top language">
