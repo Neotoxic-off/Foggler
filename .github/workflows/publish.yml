@@ -23,13 +23,23 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build, Run and Push Docker Image
+      - name: Build Docker Image
         run: |
           IMAGE=ghcr.io/${{ steps.vars.outputs.owner_lc }}/foggler:latest
           docker build ./foggler --tag $IMAGE
+
+      - name: Run Docker Container with mounted servers.toml
+        run: |
+          IMAGE=ghcr.io/${{ steps.vars.outputs.owner_lc }}/foggler:latest
           docker run \
+            -v ${{ github.workspace }}/servers.toml:/app/servers.toml \
             -e TIMEOUT=3 \
             -e PORT=443 \
             -e WAIT=120 \
             $IMAGE
+
+      - name: Push Docker Image
+        run: |
+          IMAGE=ghcr.io/${{ steps.vars.outputs.owner_lc }}/foggler:latest
           docker push $IMAGE
+  
