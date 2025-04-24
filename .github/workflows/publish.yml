@@ -25,6 +25,11 @@ jobs:
 
       - name: Build, Run and Push Docker Image
         run: |
-          docker build ./foggler --tag ghcr.io/${{ steps.vars.outputs.owner_lc }}/foggler:latest
-          docker run ghcr.io/${{ steps.vars.outputs.owner_lc }}/foggler:latest
-          docker push ghcr.io/${{ steps.vars.outputs.owner_lc }}/foggler:latest
+          IMAGE=ghcr.io/${{ steps.vars.outputs.owner_lc }}/foggler:latest
+          docker build ./foggler --tag $IMAGE
+          docker run \
+            -e TIMEOUT=3 \
+            -e PORT=443 \
+            -e WAIT=120 \
+            $IMAGE
+          docker push $IMAGE
