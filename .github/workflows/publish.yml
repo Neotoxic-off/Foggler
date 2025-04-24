@@ -68,7 +68,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=raw,value=latest      # always push latest
-            type=ref,event=branch      # adds tags like master, dev, etc.
+            type=semver,pattern={{version}}  # This will create tags like 1.0.0 from git tags v1.0.0
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
