@@ -1,4 +1,4 @@
-![{51A7EDD0-4468-4A50-944D-45399369C32A}](https://github.com/user-attachments/assets/ef5d29e1-1d0f-4b27-8652-adb1a9a573bb)<div align="center">
+<div align="center">
   <h1>🕸️ Foggler</h1>
 
   <img src="https://img.shields.io/github/last-commit/Neotoxic-off/foggler" alt="GitHub last commit">
