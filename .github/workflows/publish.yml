@@ -24,18 +24,16 @@ jobs:
           IMAGE=ghcr.io/neotoxic-off/foggler:latest
           docker build ./foggler --tag $IMAGE
 
-      - name: Run Docker Container with mounted servers.toml
+      - name: Build, Run and Push Docker Image
         run: |
           IMAGE=ghcr.io/neotoxic-off/foggler:latest
+          docker build ./foggler --tag $IMAGE
           docker run \
             -v ${{ github.workspace }}/servers.toml:/app/servers.toml \
             -e TIMEOUT=3 \
             -e PORT=443 \
             -e WAIT=0 \
             $IMAGE
-
-      - name: Push Docker Image
-        run: |
-          IMAGE=ghcr.io/neotoxic-off/foggler:latest
           docker push $IMAGE
+
   
