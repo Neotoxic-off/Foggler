@@ -12,6 +12,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set lowercase repository owner
+        id: vars
+        run: echo "owner_lc=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_OUTPUT
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
@@ -21,6 +25,6 @@ jobs:
 
       - name: Build, Run and Push Docker Image
         run: |
-          docker build ./foggler --tag ghcr.io/${{ github.repository_owner }}/foggler:latest
-          docker run ghcr.io/${{ github.repository_owner }}/foggler:latest
-          docker push ghcr.io/${{ github.repository_owner }}/foggler:latest
+          docker build ./foggler --tag ghcr.io/${{ steps.vars.outputs.owner_lc }}/foggler:latest
+          docker run ghcr.io/${{ steps.vars.outputs.owner_lc }}/foggler:latest
+          docker push ghcr.io/${{ steps.vars.outputs.owner_lc }}/foggler:latest
