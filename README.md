@@ -23,6 +23,12 @@
 
 ---
 
+## Showcase
+
+<img src="images/showcase.gif" width="90%" height="90%"/>
+
+---
+
 ## 🐳 Container
 
 ### Requirements
@@ -72,10 +78,9 @@ avg_over_time(
 ) by (fields_server)
 ```
 
-<p align="center">
-  <img src="images/image.png" width="80%" height="80%"/>
-  <img src="images/capture.png" width="80%" height="80%"/>
-</p>
+| | |
+|:-------------------------:|:-------------------------:|
+|<img src="images/image.png"/>|<img src="images/capture.png"/>|
 
 ---
 
