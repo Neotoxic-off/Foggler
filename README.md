@@ -1,12 +1,11 @@
-<div align="center">
+![{51A7EDD0-4468-4A50-944D-45399369C32A}](https://github.com/user-attachments/assets/ef5d29e1-1d0f-4b27-8652-adb1a9a573bb)<div align="center">
   <h1>🕸️ Foggler</h1>
 
-  <img src="https://img.shields.io/github/v/release/Neotoxic-off/foggler" alt="Github release">
   <img src="https://img.shields.io/github/last-commit/Neotoxic-off/foggler" alt="GitHub last commit">
   <img src="https://img.shields.io/github/repo-size/Neotoxic-off/foggler" alt="GitHub repo size">
   <img src="https://img.shields.io/github/languages/top/Neotoxic-off/foggler" alt="GitHub top language">
 
-  <p><strong>Foggler keeps a constant watch on Dead by Daylight server connections, peeking through the fog</strong></p>
+  <p><strong>Foggler keeps a constant watch on Gamelift AWS server connections, peeking through the fog</strong></p>
 </div>
 
 
@@ -70,32 +69,10 @@ avg_over_time(
 
 <p align="center">
   <img src="images/image.png" width="80%" height="80%"/>
+  <img src="images/capture.png" width="80%" height="80%"/>
 </p>
 
 ---
-
-## 🔧 Binary
-
-### Usage
-```sh
-Foggler keeps a constant watch on Dead by Daylight server connections
-
-Usage: foggler [OPTIONS] --servers <SERVERS>
-
-Options:
-  -s, --servers <SERVERS>  List of servers to ping
-  -t, --timeout <TIMEOUT>  Time limit to wait before timeout [default: 3]
-  -p, --port <PORT>        Port to ping [default: 443]
-  -w, --wait <WAIT>        Waiting time in sec between checks (0 for one-time) [default: 600]
-  -l, --logs <LOGS>        Logs folder for monitoring [default: logs]
-  -h, --help               Print help
-  -V, --version            Print version
-```
-
-### Example
-```sh
-./foggler --servers servers.toml --wait 0
-```
 
 ### Output
 ```log
