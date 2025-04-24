@@ -35,7 +35,7 @@ jobs:
             -v ${{ github.workspace }}/servers.toml:/app/servers.toml \
             -e TIMEOUT=3 \
             -e PORT=443 \
-            -e WAIT=120 \
+            -e WAIT=0 \
             $IMAGE
 
       - name: Push Docker Image
