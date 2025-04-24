@@ -32,7 +32,7 @@
 - Grafana
 - Loki
 - Promtail
-- Rust
+- Foggler
 
 ### Environment Variables
 ```ini
@@ -43,7 +43,7 @@ TIMEOUT=3
 WAIT=600
 ```
 
-### Deploy
+### Auto Deploy
 [deploy.sh](./deploy.sh)
 
 ```sh
@@ -51,16 +51,21 @@ chmod +x deploy.sh
 ./deploy.sh
 ```
 
+### Manual Deploy
+```sh
+sudo chmod 777 grafana
+docker compose up --build
+```
+
 ---
 
 ## 📊 Grafana
 
-### Suggested Panel Setting
-> **Graph styles** → Connect null values → Always
-
+### Loki Query
 ```sh
 avg_over_time(
   {job="foggler"}
+  |~ "*"
   | json
   | unwrap fields_ping
   [${__interval}]
