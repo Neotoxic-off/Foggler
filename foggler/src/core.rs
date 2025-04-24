@@ -29,7 +29,7 @@ impl Core {
                 (true, name, format!("{}", time))
             }
             Err(e) => {
-                (false, name, e)
+                (false, name, format!("{}", e))
             }
         }
     }
