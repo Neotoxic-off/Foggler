@@ -67,10 +67,8 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=ref,event=tag         # produces v1.2.3 from Git tag refs
             type=raw,value=latest      # always push latest
             type=ref,event=branch      # adds tags like master, dev, etc.
-            type=sha                   # still generate the sha tag
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
