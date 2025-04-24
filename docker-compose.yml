@@ -1,6 +1,6 @@
 services:
     foggler:
-        build: foggler
+        image: ghcr.io/neotoxic-off/foggler:latest
         environment:
           PORT: ${PORT}
           TIMEOUT: ${TIMEOUT}
