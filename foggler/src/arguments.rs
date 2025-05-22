@@ -1,7 +1,7 @@
 use clap::Parser;
 
 #[derive(Parser)]
-#[command(version, about = "Foggler keeps a constant watch on Dead by Daylight server connections")]
+#[command(version, about = "Foggler keeps a constant watch on Gamelift AWS server connections")]
 pub struct Arguments {
     #[arg(short, long, required = true, help = "List of servers to ping")]
     pub servers: String,
